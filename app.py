@@ -54,7 +54,7 @@ def loanapproval():
         <body> 
       
         <center> 
-            <img src="/images/logo.gif" width="283" height="80/">
+            <img src="./images/logo.gif" width="283" height="80/">
             <h1>You are granted loan by Altoro mutual</h1> 
             <p> 
                 Your account has been granted an pre approved loan.

