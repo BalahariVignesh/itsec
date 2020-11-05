@@ -36,7 +36,7 @@ This exercise is realised using Python+Flask and deployed in heroku.(The links a
             
             return redirect('http://demo.testfire.net')
     ```
-    3. Viewing the stored credentials is implemented using the below code.
+    3. Viewing the stored credentials is implemented using the below code.You can access the page here:[Exposed Cookie](https://mysterious-harbor-34550.herokuapp.com/expose)
     ```python
         @app.route('/expose')
             def expose():
@@ -104,7 +104,7 @@ Step 2: [Exposed Login Credentials](https://mysterious-harbor-34550.herokuapp.co
                 file.close()
                 return data
     ```
-    3. Viewing the stored cookie is implemented using the below code.
+    3. Viewing the stored cookie is implemented using the below code. You can access the page here:[Exposed Cookie](https://mysterious-harbor-34550.herokuapp.com/expose)
     ```python
         @app.route('/expose')
             def expose():
@@ -121,7 +121,7 @@ Step 2: [Exposed Login Credentials](https://mysterious-harbor-34550.herokuapp.co
     ```
 ## Walkthrough and links to view the second exercise.
 Step 1: [Loan is now approved!](https://mysterious-harbor-34550.herokuapp.com/loanapproval) for the login page\
-Step 2: [Exposed Cookie](https://mysterious-harbor-34550.herokuapp.com/expose) to view the stored user credentials\
+Step 2: [Exposed Cookie](https://mysterious-harbor-34550.herokuapp.com/expose) to view the stored user credentials
 
 /loanapproval- this is the link that will be shared with as a man in the middle attack, once he clicks here /ilikecookies is called to write cookie data of the user in cookiedata.txt.
 
@@ -132,3 +132,5 @@ Step 2: [Exposed Cookie](https://mysterious-harbor-34550.herokuapp.com/expose) t
  3. What would be your advices for the Altoro Mutual bank in order to close the vulnerabilities or to make exploiting them impossible? (2P) 
     - The Altoro Mutual bank site is vulnerable to cross site scripting, if Same Origin Policy is implemented, then the exploits could be avoided.
     ![Same Origin Policy](./images/SOP.jpg)
+    - Even if CORS is implemented, the sensitive data will not be vulnerable.
+    ![CORS](./images/CORS.jpg)
